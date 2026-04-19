@@ -1,6 +1,8 @@
 from core.download import download_file
 from core.extractor import extract_file
 from api.minecraft_api import _getVersion
+import os
+
 
 version_link = _getVersion(attempt_val=5)
 result = version_link["result"]["links"]
@@ -22,7 +24,14 @@ while True:
         MC_version = int(input("pilih version yang kamu inginkan: "))
         if MC_version in length_result:
             link_server = result[MC_version]["downloadUrl"]
-            download_file(url=link_server, timeout=30, retries=3)
+            typeServer = result[MC_version]['downloadType']
+
+            split_version = link_server.split("/")[-1]
+            full_name = typeServer + '_' + split_version
+            full_path = os.path.join(os.getcwd(), full_name)
+
+            downloaded_file_path = download_file(url=link_server, timeout=30, retries=3)
+            extract_file(downloaded_file_path, full_path)
             break
         print(f"Pilih angka diantara {len(result)}")
     except Exception:
