@@ -36,7 +36,3 @@ while True:
         print(f"Pilih angka diantara {len(result)}")
     except Exception:
         print("Angka tidak valid")
-    
-
-
-
