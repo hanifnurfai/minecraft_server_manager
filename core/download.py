@@ -17,7 +17,7 @@ def download_file(url, timeout=10, retries=3, download_dir="tempFile") -> str:
         try:
             with requests.get(url, headers=api_request_header, stream=True, timeout=timeout) as req:
                 req.raise_for_status()
-                name_file = "_".join(url.split("/")[-2:])
+                name_file = "-".join(url.split("/")[-2:])
                 full_path = path / name_file
 
                 with open(full_path, 'wb') as file:
