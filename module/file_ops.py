@@ -39,4 +39,7 @@ def read_json(file_name: str) -> dict:
 # Write file json
 def write_json(file_name: str, content: dict):
     with open(file_name, "w") as file:
-        file.write(content)    
+        json_string = json.dumps(content, indent=4)
+        file.write(json_string)    
+
+extract_file(file_path="content/savedZIPServers/bedrock-server-1.26.20.5.zip", output_folder="content/savedWorlds/")

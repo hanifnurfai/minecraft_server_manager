@@ -10,8 +10,8 @@ HEADER ={
     'Content-Type': 'application/json'
 }
 
-def _getVersion(attempt_val=5) -> dict:
-    """get version and download link minecraft server.
+def avaible_version(attempt_val=5) -> dict:
+    """get avaible version and download link minecraft server.
 
     Args:
         attempt_val (int, optional): value for attempting. Defaults to 5.
@@ -35,3 +35,9 @@ def _getVersion(attempt_val=5) -> dict:
             time.sleep(wait_time)
     logging.error("Download failed after %d retries.", attempt_val)
     return None
+
+def main():
+    print(avaible_version())
+
+if __name__ == "__main__":
+    main()

@@ -5,7 +5,7 @@ import logging
 
 api_request_header = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
 
-def download_file(url, timeout=10, retries=3, download_dir="tempFile") -> str:
+def download_file(url, timeout=10, retries=3, download_dir="content/savedZIPServers") -> str:
     """
     Downloads a file from the given URL with retries.
     Returns the file path if successful, else None.
