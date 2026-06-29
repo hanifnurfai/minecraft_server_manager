@@ -2,6 +2,10 @@ import asyncio
 import sys
 import os
 
+class ServerProperties:
+    def __init__(self) -> None:
+        pass
+
 class ServerMinecraft:
     def __init__(self, name, server_directory, jar_name="server.jar"):
         self.name = name
@@ -15,9 +19,10 @@ class ServerMinecraft:
         if self.process:
             print(f"[{self.name}] Server sudah dalam kondisi berjalan!")
             return
+        
 
         print(f"[{self.name}] Sedang menyalakan server...")
-        
+        # Membuat direktori temporary untuk mengeksekusi servert
         # Pindah ke directory server agar file eula.txt, server.properties dll terbaca dengan benar
         os.chdir(self.server_directory)
 
